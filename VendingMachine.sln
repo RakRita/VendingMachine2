@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.32228.343
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VendingMachine", "VendingMachine\VendingMachine.csproj", "{2977402C-5D12-464C-A2AE-C218531F18C7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WendingMachineTests", "WendingMachineTests\WendingMachineTests.csproj", "{1791E6FA-79CB-435A-A276-6F4DE5C6B41E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2977402C-5D12-464C-A2AE-C218531F18C7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2977402C-5D12-464C-A2AE-C218531F18C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2977402C-5D12-464C-A2AE-C218531F18C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2977402C-5D12-464C-A2AE-C218531F18C7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1791E6FA-79CB-435A-A276-6F4DE5C6B41E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1791E6FA-79CB-435A-A276-6F4DE5C6B41E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1791E6FA-79CB-435A-A276-6F4DE5C6B41E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1791E6FA-79CB-435A-A276-6F4DE5C6B41E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {67B7B98E-13B6-440F-B0D5-93453825A3E9}
+	EndGlobalSection
+EndGlobal
