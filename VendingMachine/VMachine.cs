@@ -4,32 +4,12 @@ using System.Linq;
 
 namespace VendingMachine
 {
+
+
+
     public class VMachine : IVending
+
     {
-        int user;
-        int val;
-        bool harProdukt = true;
-        bool harPengar = true;
-        int total;
-        int result;
-
-
-<<<<<<< HEAD
-        private List<VendingItems> vendingItems = new List<VendingItems>();
-=======
-        List<VendingItems> vendingItems = new List<VendingItems>();
->>>>>>> b17dd8e542e2598bda73aed486858b9f899737cd
-
-        public readonly int[] moneyValues = new int[] { 1, 5, 10, 20, 50, 100, 500, 1000 };
-
-        public int[] MoneyDemoninations { get { return moneyValues; } }
-
-        public List<int> moneyPool = new List<int>();
-
-<<<<<<< HEAD
-
-
-
 
         public VMachine()
         {
@@ -37,20 +17,40 @@ namespace VendingMachine
 
 
         }
+
+
+
+       
+        int val;
+        bool harProdukt = true;
+        bool harPengar = true;
+        int saldo;
+        int result;
+
+
+
+
+
+
+        public readonly List<int> moneyValues = new List<int>() { 1, 5, 10, 20, 50, 100, 500, 1000 };
+
+       // public int[] moneyValues { get { return moneyValues; } }
+
+        //public List<int> moneyPool = new List<int>();
+
+        public List<VendingItems> vendingItems = new List<VendingItems>();
+
+
+
+
         private void MakeProductsList()
-=======
-        public VMachine(List<VendingItems> nyaVaror)
-        {
-            vendingItems = MakeProducts(nyaVaror);
-
-        }
-        public List<VendingItems> MakeProducts(List<VendingItems> nyaVaror)
->>>>>>> b17dd8e542e2598bda73aed486858b9f899737cd
         {
 
 
 
-<<<<<<< HEAD
+
+
+
             Godis candy = new Godis() { info = "Polkagrisar", price = 5 };
             Kaka cake = new Kaka() { info = "Kanelbulle", price = 10 };
             Choklad choklad = new Choklad() { info = "Chokladkaka", price = 15 };
@@ -64,21 +64,7 @@ namespace VendingMachine
             vendingItems.Add(chips);
 
 
-=======
-            Godis candy = new Godis() { Info = "Polkagrisar", Price = 5 };
-            Kaka cake = new Kaka() { Info = "Kanelbulle", Price = 10 };
-            Choklad choklad = new Choklad() { Info = "Chokladkaka", Price = 15 };
-            Dricka dricka = new Dricka() { Info = "Fanta", Price = 10 };
-            Chips chips = new Chips() { Info = "Potatischips", Price = 10 };
 
-            nyaVaror.Add(candy);
-            nyaVaror.Add(cake);
-            nyaVaror.Add(choklad);
-            nyaVaror.Add(dricka);
-            nyaVaror.Add(chips);
-
-            return nyaVaror;
->>>>>>> b17dd8e542e2598bda73aed486858b9f899737cd
         }
 
         public void ShowAllProducts()
@@ -87,27 +73,19 @@ namespace VendingMachine
             {
                 for (int i = 0; i < vendingItems.Count; i++)
                 {
-<<<<<<< HEAD
+
                     Console.WriteLine("" + (i + 1) + ":" + vendingItems[i].info + " " + vendingItems[i].price + " kr");
                 }
             }
         }
 
 
-        public void Buy()
-
-
-
-=======
-                    Console.WriteLine("" + (i + 1) + ":" + vendingItems[i].Info + " " + vendingItems[i].Price + " kr");
-                }
-            }
-        }
+        /*
         public void ByMoreProduct(VendingItems vendingItems)
         {
-            if (total >= vendingItems.Price)
+            if (saldo >= vendingItems.price)
             {
-                total = UpdateTotalValue(vendingItems);
+                saldo = UpdateTotalValue(vendingItems);
 
                 Console.WriteLine($"Du har följande belopp att handla för: { total} kr");
                 vendingItems.Use();
@@ -151,17 +129,17 @@ namespace VendingMachine
                 harProdukt = false;
             }
         }
-
+        */
         public void Buy()
->>>>>>> b17dd8e542e2598bda73aed486858b9f899737cd
+
         {
-            if (total > 0)
+            if (saldo > 0)
             {
-                Console.WriteLine($"Du har följande belopp att handla för {total} kr");
+                Console.WriteLine($"Du har följande belopp att handla för {saldo} kr");
 
                 do
                 {
-<<<<<<< HEAD
+
                     int i = 1;
 
                     foreach (var item in vendingItems)
@@ -170,9 +148,8 @@ namespace VendingMachine
                         item.Examine();
 
                     }
-=======
+
                     ShowAllProducts();
->>>>>>> b17dd8e542e2598bda73aed486858b9f899737cd
 
                     Console.WriteLine("Välj 0 för att avsluta och få växel");
 
@@ -180,10 +157,7 @@ namespace VendingMachine
 
                     val = Convert.ToInt32(Console.ReadLine());
 
-<<<<<<< HEAD
 
-=======
->>>>>>> b17dd8e542e2598bda73aed486858b9f899737cd
                     switch (val)
                     {
                         case 1:
@@ -219,18 +193,17 @@ namespace VendingMachine
         }
 
 
-<<<<<<< HEAD
 
 
         public void ByMoreProduct(VendingItems vendingItems)
         {
-            if (total >= vendingItems.price)
+            if (saldo >= vendingItems.price)
             {
 
-                total = UpdateTotalValue(vendingItems);
+                saldo = UpdateTotalValue(vendingItems);
                 vendingItems.Use();
                 Console.WriteLine();
-                Console.WriteLine($"Du har följande belopp att handla för: { total} kr");
+                Console.WriteLine($"Du har följande belopp att handla för: { saldo} kr");
 
                 /*
                 do
@@ -273,19 +246,14 @@ namespace VendingMachine
             }
         }
 
-=======
->>>>>>> b17dd8e542e2598bda73aed486858b9f899737cd
-        public int UpdateTotalValue(VendingItems vendingItems)
+        public int UpdateTotalValue(VendingItems item)
         {
 
 
-            if (total > 0)
+            if (saldo > 0)
             {
-<<<<<<< HEAD
-                int result = total - vendingItems.price;
-=======
-                int result = total - vendingItems.Price;
->>>>>>> b17dd8e542e2598bda73aed486858b9f899737cd
+                int result = saldo - item.price;
+
                 return result;
             }
 
@@ -301,17 +269,17 @@ namespace VendingMachine
         {
             Console.WriteLine("Du kan lägga i 1,5,10, 20, 50, 100, 500, 1000 kr");
             Console.WriteLine("Vänligen lägg i pengar");
-            user = Convert.ToInt32(Console.ReadLine());
+           int userInput = Convert.ToInt32(Console.ReadLine());
 
-            if (UserInsertMoney(user))
+            if (userInput>0 && moneyValues.Contains(userInput))
             {
 
-                total = TotalAmountInMachine(user);
-<<<<<<< HEAD
-                Console.WriteLine($"Du har följande belopp att handla för {moneyPool.Sum()} kr");
-=======
-                Console.WriteLine($"Du har följande belopp att handla för {moneyPool.Sum()}");
->>>>>>> b17dd8e542e2598bda73aed486858b9f899737cd
+                saldo += userInput;
+
+                Console.WriteLine($"Du har följande belopp att handla för {saldo} kr");
+
+               
+
             }
             else
             {
@@ -322,9 +290,9 @@ namespace VendingMachine
 
 
 
-        public int TotalAmountInMachine(int userCoin)
+      /*  public int TotalAmountInMachine(int userCoin)
         {
-            if (total > 0)
+            if (saldo > 0)
             {
                 moneyPool.Clear();
                 moneyPool.Add(total);
@@ -333,33 +301,33 @@ namespace VendingMachine
             moneyPool.Add(userCoin);
             total = moneyPool.Sum();
             return total;
-        }
+        }*/
 
         public void EndTransaction()
         {
-<<<<<<< HEAD
-            bool buy = true;
 
+            bool buy = true;
+            int howManyOfThis;
             do
             {
 
 
-                int howManyOfThis;
-                if (total == 0)
+
+                if (saldo == 0)
                 {
                     Console.WriteLine("Inget att returnera");
                     break;
                 }
                 else
                 {
-                    Console.WriteLine($"Du får tillbaka {total} kr.");
-                    for (int i = MoneyDemoninations.Length - 1; i >= 0; i--)
+                    Console.WriteLine($"Du får tillbaka {saldo} kr.");
+                    for (int i = moneyValues.Count - 1; i >= 0; i--)
                     {
-                        if (total >= MoneyDemoninations[i])
+                        if (saldo >= moneyValues[i])
                         {
-                            howManyOfThis = total / MoneyDemoninations[i];
-                            Console.WriteLine($"{howManyOfThis} st x {MoneyDemoninations[i]} kr");
-                            total = total % MoneyDemoninations[i];
+                            howManyOfThis = saldo / moneyValues[i];
+                            Console.WriteLine($"{howManyOfThis} st x {moneyValues[i]} kr");
+                            saldo = saldo % moneyValues[i];
 
                         }
 
@@ -368,63 +336,34 @@ namespace VendingMachine
 
                     Console.WriteLine($"Välkommen åter");
 
-                    moneyPool.Clear();
+                  
 
-                    total = Reset(total);
+                   
                     buy = false;
-                    
+
 
                 }
             } while (buy);
-            
+
             Console.ReadLine();
-           
-           
 
-=======
 
-            int howManyOfThis;
-            if (total == 0)
-            {
-                Console.WriteLine("Inget att returnera");
+          
+
             }
-            else
-            {
-                Console.WriteLine($"Du får tillbaka {total} kr.");
-                for (int i = MoneyDemoninations.Length - 1; i >= 0; i--)
-                {
-                    if (total >= MoneyDemoninations[i])
-                    {
-                        howManyOfThis = total / MoneyDemoninations[i];
-                        Console.WriteLine($"{howManyOfThis} st x {MoneyDemoninations[i]} kr");
-                        total = total % MoneyDemoninations[i];
 
-                    }
-                }
-                Console.WriteLine($"Välkommen åter");
-              
-               moneyPool.Clear();
-               total = Reset(total);
-               
-            }
-           
->>>>>>> b17dd8e542e2598bda73aed486858b9f899737cd
+
         }
 
 
-        public int Reset(int amount)
+       
+
+
+
+
+       /* public bool UserInsertMoney(int userCoin)
         {
-            amount = 0;
-            return amount;
-        }
-
-
-
-
-
-        public bool UserInsertMoney(int userCoin)
-        {
-            if (MoneyDemoninations.Contains(userCoin))
+            if (money.Contains(userCoin))
             {
                 return true;
             }
@@ -432,6 +371,6 @@ namespace VendingMachine
             {
                 return false;
             }
-        }
+        }*/
     }
-}
+
