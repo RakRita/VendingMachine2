@@ -8,12 +8,14 @@ namespace VendingMachine
     {
 
 
+
         public override void Examine()
         {
             info = "Kanelbulle";
             price = 10;
             Console.WriteLine($"{info}, {price} kr");
         }
+        
         public override void Use()
         {
             Console.WriteLine($"Ät den nu när den är färsk");

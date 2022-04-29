@@ -10,9 +10,13 @@ namespace VendingMachine
 
         public override void Examine()
         {
+
             info = "Potatischips";
             price = 10;
             Console.WriteLine($"{info}, {price} kr");
+
+            
+
         }
         public override void Use()
         {
